@@ -13,7 +13,7 @@ chmod +x miniconda.sh
 ./miniconda.sh -b
 ls -la
 ls -la ~
-export PATH=/home/travis/miniconda/bin:$PATH
+export PATH=/Users/travis/miniconda/bin:$PATH
 conda update --yes conda
 
 # create a conda environment with the necessary Python modules for a build
