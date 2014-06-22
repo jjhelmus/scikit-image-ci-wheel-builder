@@ -1,0 +1,4 @@
+language:
+    - objective-c
+
+install: source build_wheel.sh
