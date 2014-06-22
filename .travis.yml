@@ -1,18 +1,25 @@
 language:
-    - objective-c
-
+- objective-c
 matrix:
-    include:
-    - python: 2.7
-      env:
-        - PYTHON_VERSION="2.7"
-        - NUMPY_VERSION="1.6"
-    - python: 3.3
-      env:
-        - PYTHON_VERSION="3.3"
-        - NUMPY_VERSION="1.7"
-    - python: 3.4
-      env:
-        - PYTHON_VERSION="3.4"
-        - NUMPY_VERSION="1.8"
+  include:
+  - python: 2.7
+    env:
+    - PYTHON_VERSION="2.7"
+    - NUMPY_VERSION="1.6"
+  - python: 3.3
+    env:
+    - PYTHON_VERSION="3.3"
+    - NUMPY_VERSION="1.7"
+  - python: 3.4
+    env:
+    - PYTHON_VERSION="3.4"
+    - NUMPY_VERSION="1.8"
 install: source build_wheel.sh
+deploy:
+  provider: releases
+  api_key:
+    secure: AaEcD4djzoUlblgNYJofWdz3lL48UGITp+Ly1jYkcbjwNy4I2geAkekBk5gkjxWxLa16LbQxxN91IqDhgQnFA8e6hgQU4DpZm6OoQFE8m23VYTz9WPxESP6RNvAgvvHT0aiI8XrMFWDLS2Yb6qB5m/0/Zyrj6/UkZDAOFM07jj8=
+  file: '*.whl'
+  skip_cleanup: true
+  on:
+    repo: jjhelmus/scikit-image-ci-wheel-builder
