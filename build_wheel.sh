@@ -4,12 +4,15 @@ PYTHON_VERSION="2.7"
 NUMPY_VERSION="1.6"         # 1.6 works for 2.7, 1.7 works for 3.3, 1.8 for 3.4
 SKIMAGE_VERSION="0.10.0"        # version of scikits-image to build wheel for
 
+set -x
 # Install miniconda 
 # comment this block out for local builds.
 wget http://repo.continuum.io/miniconda/Miniconda-3.5.2-MacOSX-x86_64.sh \
     -O miniconda.sh
 chmod +x miniconda.sh
 ./miniconda.sh -b
+ls -la
+ls -la ~
 export PATH=/home/travis/miniconda/bin:$PATH
 conda update --yes conda
 
