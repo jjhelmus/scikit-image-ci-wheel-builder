@@ -6,7 +6,7 @@ SKIMAGE_VERSION="0.10.0"        # version of scikits-image to build wheel for
 
 # Install miniconda 
 # comment this block out for local builds.
-wget http://repo.continuum.io/miniconda/Miniconda-3.5.2-Linux-x86_64.sh \
+wget http://repo.continuum.io/miniconda/Miniconda-3.5.2-MacOSX-x86_64.sh \
     -O miniconda.sh
 chmod +x miniconda.sh
 ./miniconda.sh -b
