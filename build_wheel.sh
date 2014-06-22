@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PYTHON_VERSION="2.7"
-NUMPY_VERSION="1.6"         # 1.6 works for 2.7, 1.7 works for 3.3, 1.8 for 3.4
+#PYTHON_VERSION="2.7"
+#NUMPY_VERSION="1.6"         # 1.6 works for 2.7, 1.7 works for 3.3, 1.8 for 3.4
 SKIMAGE_VERSION="0.10.0"        # version of scikits-image to build wheel for
 
 # Install miniconda 
