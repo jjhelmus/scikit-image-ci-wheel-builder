@@ -28,7 +28,7 @@ cd tmp
 
 #cp ../v${SKIMAGE_VERSION}.tar.gz .  # testing locally
 wget --no-check-certificate \
-    https://github.com/scikit-image/scikit-image/archive/v${VERSION}.tar.gz \
+    https://pypi.python.org/packages/source/s/scikit-image/scikit-image-${VERSION}.tar.gz \
     -O v${VERSION}.tar.gz
 tar xfz v${SKIMAGE_VERSION}.tar.gz
 cd scikit-image-${SKIMAGE_VERSION}/
