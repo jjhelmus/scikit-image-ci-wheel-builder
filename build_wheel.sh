@@ -39,3 +39,4 @@ mv dist/*.whl ../../.
 cd ../..
 rm -r tmp
 source deactivate
+ls -la
