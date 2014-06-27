@@ -11,6 +11,9 @@ install:
   - C:\Python27\Scripts\pip.exe install conda
   - C:\Python27\Scripts\conda.exe init
   - C:\Python27\Scripts\conda.exe create -n build_env --yes --quiet python=2.7 setuptools pip numpy six cython
+  - dir C:\Python27\envs\build_env
+  - dir C:\Python27\envs\build_env\Scripts
+  - C:\Python27\envs\build_env\Scripts\pip install wheel
   - cinst 7zip
   - ps: (new-object net.webclient).DownloadFile('https://github.com/scikit-image/scikit-image/archive/v0.10.0.zip', 'C:\v0.10.0.zip')
   - 7z x C:\v0.10.0.zip -oC:\tmp\skimage
@@ -19,8 +22,9 @@ build_script:
   - cd C:\tmp\skimage\scikit-image-0.10.0
   - dir
   - C:\Python27\envs\build_env\python.exe setup.py bdist_wheel
+  - dir dist
 
 test_script:
   - SET PATH=%PATH%;C:\Python27\envs\build_env\Scripts
   - C:\Python27\envs\build_env\python.exe setup.py install 
-  - C:\Python27\envs\py3\Scripts\nosetests -v
+  - C:\Python27\envs\build_env\Scripts\nosetests -v
