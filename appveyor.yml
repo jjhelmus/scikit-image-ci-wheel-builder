@@ -1,0 +1,22 @@
+# Configuration file for AppVeyor continuous integration on Windows
+# adapted from MDTraj project (http://mdtraj.org/)
+
+os: Windows Server 2012
+
+install:
+  - cinst 7zip
+  - ps: (new-object net.webclient).DownloadFile('https://raw.github.com/pypa/pip/master/contrib/get-pip.py', 'C:\get-pip.py')
+  - C:\Python27\python.exe c:\get-pip.py
+  - C:\Python27\Scripts\pip.exe install numpy
+  - C:\Python27\Scripts\pip.exe install six
+  - C:\Python27\Scripts\pip.exe install cython
+  - C:\Python27\Scripts\pip.exe install wheel 
+  - ps: (new-object net.webclient).DownloadFile('https://github.com/scikit-image/scikit-image/archive/v0.10.0.zip', 'C:\v0.10.0.zip')
+  - 7z x C:\v0.10.0.zip -oC:\tmp\skimage
+
+build_script:
+  - cd C:\tmp\skimage
+  - C:\Python27\python.exe setup.py bdist_wheel
+
+test_script:
+  - C:\Python27\python.exe setup.py install 
