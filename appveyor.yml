@@ -4,19 +4,22 @@
 os: Windows Server 2012
 
 install:
-  - cinst 7zip
   - ps: (new-object net.webclient).DownloadFile('https://raw.github.com/pypa/pip/master/contrib/get-pip.py', 'C:\get-pip.py')
   - C:\Python27\python.exe c:\get-pip.py
-  - C:\Python27\Scripts\pip.exe install numpy
-  - C:\Python27\Scripts\pip.exe install six
-  - C:\Python27\Scripts\pip.exe install cython
-  - C:\Python27\Scripts\pip.exe install wheel 
+  - C:\Python27\Scripts\pip.exe install pyyaml
+  - C:\Python27\Scripts\pip.exe install pycosat
+  - C:\Python27\Scripts\pip.exe install conda
+  - C:\Python27\Scripts\conda.exe init
+  - C:\Python27\Scripts\conda.exe create -n build_env --yes --quiet python=2.7 setuptools pip numpy six cython
+  - cinst 7zip
   - ps: (new-object net.webclient).DownloadFile('https://github.com/scikit-image/scikit-image/archive/v0.10.0.zip', 'C:\v0.10.0.zip')
   - 7z x C:\v0.10.0.zip -oC:\tmp\skimage
 
 build_script:
   - cd C:\tmp\skimage
-  - C:\Python27\python.exe setup.py bdist_wheel
+  - C:\Python27\envs\build_env\python.exe setup.py bdist_wheel
 
 test_script:
-  - C:\Python27\python.exe setup.py install 
+  - SET PATH=%PATH%;C:\Python27\envs\build_env\Scripts
+  - C:\Python27\envs\build_env\python.exe setup.py install 
+  - C:\Python27\envs\py3\Scripts\nosetests -v
