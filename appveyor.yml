@@ -16,7 +16,8 @@ install:
   - 7z x C:\v0.10.0.zip -oC:\tmp\skimage
 
 build_script:
-  - cd C:\tmp\skimage
+  - cd C:\tmp\skimage\scikit-image-0.10.0
+  - dir
   - C:\Python27\envs\build_env\python.exe setup.py bdist_wheel
 
 test_script:
