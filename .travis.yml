@@ -29,4 +29,5 @@ deploy:
   file: $whl_file
   skip_cleanup: true
   on:
-    repo: jjhelmus/scikit-image-ci-wheel-builder
+    all_branches: true
+    tags: true
