@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 #PYTHON_VERSION="2.7"
 #NUMPY_VERSION="1.6"         # 1.6 works for 2.7, 1.7 works for 3.3, 1.8 for 3.4
